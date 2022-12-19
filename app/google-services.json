@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "324015702489",
+    "project_id": "kampusqr",
+    "storage_bucket": "kampusqr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324015702489:android:1625a232c218c2cdc7d9c8",
+        "android_client_info": {
+          "package_name": "com.alisayar.kapmusqr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324015702489-ujsn7361b9rd8fuci5rh4kbras2nslbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMignIzyxGQqkCudtYNX5c3GugztuFjD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324015702489-ujsn7361b9rd8fuci5rh4kbras2nslbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
