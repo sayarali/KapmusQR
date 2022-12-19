@@ -21,10 +21,27 @@
         android:id="@+id/studentSignIn"
         android:name="com.alisayar.kapmusqr.login.StudentSignIn"
         android:label="fragment_student_sign_in"
-        tools:layout="@layout/fragment_student_sign_in" />
+        tools:layout="@layout/fragment_student_sign_in" >
+        <action
+            android:id="@+id/action_studentSignIn_to_studentSignUp"
+            app:destination="@id/studentSignUp" />
+    </fragment>
     <fragment
         android:id="@+id/teacherSignIn"
         android:name="com.alisayar.kapmusqr.login.TeacherSignIn"
         android:label="fragment_teacher_sign_in"
-        tools:layout="@layout/fragment_teacher_sign_in" />
+        tools:layout="@layout/fragment_teacher_sign_in" >
+        <action
+            android:id="@+id/action_teacherSignIn_to_teacherSignUp"
+            app:destination="@id/teacherSignUp" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherSignUp"
+        android:name="com.alisayar.kapmusqr.login.TeacherSignUp"
+        android:label="TeacherSignUp" />
+    <fragment
+        android:id="@+id/studentSignUp"
+        android:name="com.alisayar.kapmusqr.login.StudentSignUp"
+        android:label="fragment_student_sign_up"
+        tools:layout="@layout/fragment_student_sign_up" />
 </navigation>
