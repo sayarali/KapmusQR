@@ -25,6 +25,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tsu_personal_no_til"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -66,14 +68,65 @@
             app:boxCornerRadiusTopStart="4dp"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/tsu_room_number_til"
-            app:layout_constraintTop_toBottomOf="@+id/tsu_personal_no_til">
+            app:layout_constraintBottom_toTopOf="@+id/tsu_name_til"
+            app:layout_constraintTop_toBottomOf="@+id/tsu_personal_no_til"
+            tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tsu_email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tsu_name_til"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Adı"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/tsu_surname_til"
+            app:layout_constraintTop_toBottomOf="@+id/tsu_email_til"
+            tools:layout_editor_absoluteX="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tsu_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tsu_surname_til"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Soyadı"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/tsu_room_number_til"
+            app:layout_constraintTop_toBottomOf="@+id/tsu_name_til"
+            tools:layout_editor_absoluteX="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tsu_surname_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -91,7 +144,8 @@
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/tsu_phone_number_til"
-            app:layout_constraintTop_toBottomOf="@+id/tsu_email_til">
+            app:layout_constraintTop_toBottomOf="@+id/tsu_surname_til"
+            tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tsu_room_number_et"
