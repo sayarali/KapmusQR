@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.alisayar.kapmusqr.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_studentSignIn"
+            app:destination="@id/studentSignIn" />
+        <action
+            android:id="@+id/action_loginFragment_to_teacherSignIn"
+            app:destination="@id/teacherSignIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentSignIn"
+        android:name="com.alisayar.kapmusqr.login.StudentSignIn"
+        android:label="fragment_student_sign_in"
+        tools:layout="@layout/fragment_student_sign_in" />
+    <fragment
+        android:id="@+id/teacherSignIn"
+        android:name="com.alisayar.kapmusqr.login.TeacherSignIn"
+        android:label="fragment_teacher_sign_in"
+        tools:layout="@layout/fragment_teacher_sign_in" />
+</navigation>

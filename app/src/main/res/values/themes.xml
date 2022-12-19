@@ -16,6 +16,7 @@
 
     <style name="Theme.KapmusQR.NoActionBar">
         <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">@color/statusBar</item>
         <item name="windowNoTitle">true</item>
     </style>
 
