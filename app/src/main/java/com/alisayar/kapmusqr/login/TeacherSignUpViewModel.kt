@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 
 class TeacherSignUpViewModel: ViewModel() {
 
-    private lateinit var auth: FirebaseAuth
-    private lateinit var firestore: FirebaseFirestore
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     val personalNo = MutableLiveData<String>()
     val email = MutableLiveData<String>()
@@ -43,11 +43,6 @@ class TeacherSignUpViewModel: ViewModel() {
     private val _successRegisterEvent = MutableLiveData<Boolean>()
     val successRegisterEvent: LiveData<Boolean> get() = _successRegisterEvent
 
-    init {
-        auth = FirebaseAuth.getInstance()
-        firestore = FirebaseFirestore.getInstance()
-    }
-
     fun createTeacher(){
         var isError = false
         if(personalNo.value.toString() == "" || personalNo.value == null){
@@ -61,12 +56,12 @@ class TeacherSignUpViewModel: ViewModel() {
         } else
             _emailError.value = ""
         if(name.value.toString() == "" || name.value == null){
-            _nameError.value = "Parola boş bırakılamaz."
+            _nameError.value = "İsim boş bırakılamaz."
             isError = true
         } else
             _nameError.value = ""
         if(surname.value.toString() == "" || surname.value == null){
-            _surnameError.value = "Parola boş bırakılamaz."
+            _surnameError.value = "Soyisim boş bırakılamaz."
             isError = true
         } else
             _surnameError.value = ""
