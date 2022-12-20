@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.alisayar.kapmusqr.login.StudentSignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,6 +50,7 @@
                 android:id="@+id/ssu_student_no_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.studentNo}"
                 android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -75,6 +78,7 @@
                 android:id="@+id/ssu_email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.email}"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,6 +105,7 @@
                 android:id="@+id/ssu_name_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.name}"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,6 +132,7 @@
                 android:id="@+id/ssu_surname_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.surname}"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -154,6 +160,7 @@
                 android:id="@+id/ssu_phone_number_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.phoneNumber}"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -180,6 +187,7 @@
                 android:id="@+id/ssu_password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.password}"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,6 +214,7 @@
                 android:id="@+id/ssu_password_check_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.passwordCheck}"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
