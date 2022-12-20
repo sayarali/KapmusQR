@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.alisayar.kapmusqr.login.TeacherSignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,6 +52,7 @@
                 android:id="@+id/tsu_pesronal_no_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.personalNo}"
                 android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -76,6 +79,7 @@
                 android:id="@+id/tsu_email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.email}"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,6 +105,7 @@
                 android:id="@+id/tsu_name_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.name}"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,6 +131,7 @@
                 android:id="@+id/tsu_surname_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.surname}"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,6 +157,7 @@
                 android:id="@+id/tsu_room_number_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.roomNumber}"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -175,6 +182,7 @@
                 android:id="@+id/tsu_phone_number_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.phoneNumber}"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -199,6 +207,7 @@
                 android:id="@+id/tsu_password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.password}"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -223,6 +232,7 @@
                 android:id="@+id/tsu_password_check_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.passwordCheck}"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
