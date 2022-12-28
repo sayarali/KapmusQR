@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group_one">
+        <item android:id="@+id/studentHomeFragment" android:title="Ana Sayfa" />
+        <item android:id="@+id/studentMyLessonsFragment" android:title="Öğrenci" />
+        <item android:id="@+id/studentProfileFragment" android:title="Profil" />
+    </group>
+</menu>
