@@ -106,15 +106,16 @@ class TeacherSignUpViewModel: ViewModel() {
 
         try {
             val teacherHashMap = HashMap<String, Any>()
-            teacherHashMap["id"] = user.uid
+            teacherHashMap["id"] = auth.currentUser!!.uid
             teacherHashMap["personalNo"] = personalNo.value.toString()
             teacherHashMap["email"] = email.value.toString()
             teacherHashMap["name"] = name.value.toString()
             teacherHashMap["surname"] = surname.value.toString()
             teacherHashMap["roomNumber"] = roomNumber.value.toString()
             teacherHashMap["phoneNumber"] = phoneNumber.value.toString()
+            teacherHashMap["ppUrl"] = "https://firebasestorage.googleapis.com/v0/b/kampusqr.appspot.com/o/profilephotos%2Fblank-profile-picture-gdcf95bedf_1280.png?alt=media&token=5645d249-0f11-4d78-922a-114d3818485a"
 
-            firestore.collection("Teachers").document(user.uid).set(teacherHashMap).addOnCompleteListener {
+            firestore.collection("Teachers").document(auth.currentUser!!.uid).set(teacherHashMap).addOnCompleteListener {
                 _successRegisterEvent.value = true
             }.addOnFailureListener {
                 _toastError.value = it.localizedMessage

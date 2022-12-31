@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacher_nav_graph"
+    app:startDestination="@id/teacherHomeFragment">
+
+    <fragment
+        android:id="@+id/teacherHomeFragment"
+        android:name="com.alisayar.kapmusqr.teacher.home.TeacherHomeFragment"
+        android:label="Ana Sayfa"
+        tools:layout="@layout/fragment_teacher_home" >
+        <action
+            android:id="@+id/action_teacherHomeFragment_to_addLessonsFragment"
+            app:destination="@id/addLessonsFragment" />
+        <action
+            android:id="@+id/action_teacherHomeFragment_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherProfileFragment"
+        android:name="com.alisayar.kapmusqr.teacher.profile.TeacherProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_teacher_profile" />
+    <fragment
+        android:id="@+id/teacherMyLessonsFragment"
+        android:name="com.alisayar.kapmusqr.teacher.myLessons.TeacherMyLessonsFragment"
+        android:label="Derslerim"
+        tools:layout="@layout/fragment_teacher_my_lessons" />
+    <fragment
+        android:id="@+id/addLessonsFragment"
+        android:name="com.alisayar.kapmusqr.teacher.add.AddLessonsFragment"
+        android:label="Ders Ekleme"
+        tools:layout="@layout/fragment_add_lessons" />
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.alisayar.kapmusqr.lesson.LessonFragment"
+        tools:layout="@layout/fragment_lesson">
+        <argument
+            android:name="lessonModel"
+            app:argType="com.alisayar.kapmusqr.model.LessonModel" />
+        <action
+            android:id="@+id/action_lessonFragment_to_createQRFragment"
+            app:destination="@id/createQRFragment" />
+        <action
+            android:id="@+id/action_lessonFragment_to_addStudentFragment"
+            app:destination="@id/addStudentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createQRFragment"
+        android:name="com.alisayar.kapmusqr.qr.CreateQRFragment"
+        android:label="QR Oluştur"
+        tools:layout="@layout/fragment_create_q_r">
+        <argument
+            android:name="lessonModel"
+            app:argType="com.alisayar.kapmusqr.model.LessonModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.alisayar.kapmusqr.lesson.addstudent.AddStudentFragment"
+        android:label="Öğrenci Ekle">
+        <argument
+            android:name="lessonModel"
+            app:argType="com.alisayar.kapmusqr.model.LessonModel" />
+    </fragment>
+</navigation>

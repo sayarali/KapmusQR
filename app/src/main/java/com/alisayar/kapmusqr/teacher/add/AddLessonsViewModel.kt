@@ -98,6 +98,34 @@ class AddLessonsViewModel: ViewModel() {
                 firestore.collection("Lessons").document(dersKodu.value.toString()).set(hashMap).addOnCompleteListener {
                     if (it.isSuccessful){
                         _saveEvent.value = true
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 1. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 2. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 3. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 4. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 5. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 6. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 7. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 8. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 9. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 10. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 11. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 12. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 13. Hafta")
+                        firestore.collection("Lessons").document(dersKodu.value.toString())
+                            .collection("Devam Durumları").document(dersAdi.value.toString() + " 14. Hafta")
                     }
                 }
             } catch (e: Exception){

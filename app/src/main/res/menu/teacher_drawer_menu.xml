@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_one">
+        <item android:id="@+id/teacherHomeFragment" android:title="Ana Sayfa" />
+        <item android:id="@+id/teacherMyLessonsFragment" android:title="Derslerim" />
+        <item android:id="@+id/teacherProfileFragment" android:title="Profil" />
+    </group>
+
+
+
+
+</menu>

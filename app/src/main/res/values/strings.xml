@@ -13,4 +13,48 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="donemler">
+        <item>2022–2023 Güz</item>
+        <item>2022–2023 Bahar</item>
+    </string-array>
+    <string-array name="sinif">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="derslik">
+        <item>B-70</item>
+        <item>B-79</item>
+        <item>BZ-49</item>
+        <item>BZ-54</item>
+        <item>D-210</item>
+    </string-array>
+
+    <string-array name="gunler">
+        <item>Pazartesi</item>
+        <item>Salı</item>
+        <item>Çarşamba</item>
+        <item>Perşembe</item>
+        <item>Cuma</item>
+    </string-array>
+
+    <string-array name="haftalar">
+        <item>1. Hafta</item>
+        <item>2. Hafta</item>
+        <item>3. Hafta</item>
+        <item>4. Hafta</item>
+        <item>5. Hafta</item>
+        <item>6. Hafta</item>
+        <item>7. Hafta</item>
+        <item>8. Hafta</item>
+        <item>9. Hafta</item>
+        <item>10. Hafta</item>
+        <item>11. Hafta</item>
+        <item>12. Hafta</item>
+        <item>13. Hafta</item>
+        <item>14. Hafta</item>
+    </string-array>
+
 </resources>

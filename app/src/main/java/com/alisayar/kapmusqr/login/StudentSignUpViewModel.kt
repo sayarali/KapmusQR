@@ -97,15 +97,15 @@ class StudentSignUpViewModel: ViewModel() {
     private fun createUserCollection(user: FirebaseUser){
 
         try {
-            val teacherHashMap = HashMap<String, Any>()
-            teacherHashMap["id"] = user.uid
-            teacherHashMap["personalNo"] = studentNo.value.toString()
-            teacherHashMap["email"] = email.value.toString()
-            teacherHashMap["name"] = name.value.toString()
-            teacherHashMap["surname"] = surname.value.toString()
-            teacherHashMap["phoneNumber"] = phoneNumber.value.toString()
+            val studentHashMap = HashMap<String, Any>()
+            studentHashMap["id"] = auth.currentUser!!.uid
+            studentHashMap["studentNo"] = studentNo.value.toString()
+            studentHashMap["email"] = email.value.toString()
+            studentHashMap["name"] = name.value.toString()
+            studentHashMap["surname"] = surname.value.toString()
+            studentHashMap["phoneNumber"] = phoneNumber.value.toString()
 
-            firestore.collection("Students").document(user.uid).set(teacherHashMap).addOnCompleteListener {
+            firestore.collection("Students").document(auth.currentUser!!.uid).set(studentHashMap).addOnCompleteListener {
                 _successRegisterEvent.value = true
             }.addOnFailureListener {
                 _toastError.value = it.localizedMessage
