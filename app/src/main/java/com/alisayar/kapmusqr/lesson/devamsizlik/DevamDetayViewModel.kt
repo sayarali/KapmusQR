@@ -65,7 +65,7 @@ class DevamDetayViewModel(private val hafta: String, private val lessonModel: Le
                                         if(value != null && !value.isEmpty) {
                                             val documents = value.documents
                                             for (doc in documents){
-                                                val studentModel = StudentDevamsizlikModel(doc["studentNo"].toString(), doc["name"].toString() +" "+ doc["surname"].toString(), true)
+                                                val studentModel = StudentDevamsizlikModel(doc["id"].toString(), doc["studentNo"].toString(), doc["name"].toString() +" "+ doc["surname"].toString(), true)
                                                 tempOgrenciList.add(studentModel)
 
                                             }
@@ -84,7 +84,7 @@ class DevamDetayViewModel(private val hafta: String, private val lessonModel: Le
                                         if(value != null && !value.isEmpty) {
                                             val documents = value.documents
                                             for (doc in documents){
-                                                val studentModel = StudentDevamsizlikModel(doc["studentNo"].toString(), doc["name"].toString() +" "+ doc["surname"].toString(), false)
+                                                val studentModel = StudentDevamsizlikModel(doc["id"].toString(), doc["studentNo"].toString(), doc["name"].toString() +" "+ doc["surname"].toString(), false)
                                                 tempOgrenciList.add(studentModel)
 
                                             }

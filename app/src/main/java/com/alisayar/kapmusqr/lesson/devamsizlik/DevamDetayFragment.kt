@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.alisayar.kapmusqr.R
 import com.alisayar.kapmusqr.adapter.DevamsizlikOgrencilerRecyclerAdapter
+import com.alisayar.kapmusqr.adapter.StudentOnClickListener
 import com.alisayar.kapmusqr.databinding.FragmentDevamDetayBinding
 
 
@@ -29,7 +31,11 @@ class DevamDetayFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory)[DevamDetayViewModel::class.java]
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
-        binding.devamsizlikRecyclerRow.adapter = DevamsizlikOgrencilerRecyclerAdapter()
+        binding.devamsizlikRecyclerRow.adapter = DevamsizlikOgrencilerRecyclerAdapter(
+            StudentOnClickListener {
+                val action = DevamDetayFragmentDirections.actionDevamDetayFragmentToStudentProfileFragment(it.id)
+                findNavController().navigate(action)
+            })
         return binding.root
     }
 

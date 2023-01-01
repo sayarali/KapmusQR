@@ -23,7 +23,14 @@
         android:id="@+id/studentProfileFragment"
         android:name="com.alisayar.kapmusqr.student.profile.StudentProfileFragment"
         android:label="Profil"
-        tools:layout="@layout/fragment_student_profile" />
+        tools:layout="@layout/fragment_student_profile" >
+        <argument
+            android:name="studentId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_studentProfileFragment_to_studentEditProfileFragment"
+            app:destination="@id/studentEditProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lessonFragment"
         android:name="com.alisayar.kapmusqr.lesson.LessonFragment">
@@ -32,7 +39,7 @@
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />
         <action
             android:id="@+id/action_lessonFragment_to_devamDetayFragment"
-            app:destination="@id/devamDetayFragment2" />
+            app:destination="@id/devamDetayFragment" />
         <action
             android:id="@+id/action_lessonFragment_to_teacherProfileFragment"
             app:destination="@id/teacherProfileFragment2" />
@@ -41,7 +48,7 @@
             app:destination="@id/editLessonFragment" />
     </fragment>
     <fragment
-        android:id="@+id/devamDetayFragment2"
+        android:id="@+id/devamDetayFragment"
         android:name="com.alisayar.kapmusqr.lesson.devamsizlik.DevamDetayFragment">
         <argument
             android:name="hafta"
@@ -49,6 +56,9 @@
         <argument
             android:name="lessonModel"
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />
+        <action
+            android:id="@+id/action_devamDetayFragment_to_studentProfileFragment"
+            app:destination="@id/studentProfileFragment" />
 
     </fragment>
     <fragment
@@ -67,4 +77,8 @@
             android:name="lessonModel"
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />
     </fragment>
+    <fragment
+        android:id="@+id/studentEditProfileFragment"
+        android:name="com.alisayar.kapmusqr.student.profile.edit.StudentEditProfileFragment"
+        android:label="Profili Düzenle" />
 </navigation>

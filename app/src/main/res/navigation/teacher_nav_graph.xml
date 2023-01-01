@@ -60,14 +60,16 @@
     <fragment
         android:id="@+id/devamDetayFragment"
         android:name="com.alisayar.kapmusqr.lesson.devamsizlik.DevamDetayFragment"
-        android:label="fragment_devam_detay"
-        tools:layout="@layout/fragment_devam_detay" >
+        tools:layout="@layout/fragment_devam_detay">
         <argument
             android:name="hafta"
             app:argType="string" />
         <argument
             android:name="lessonModel"
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />
+        <action
+            android:id="@+id/action_devamDetayFragment_to_studentProfileFragment"
+            app:destination="@id/studentProfileFragment2" />
     </fragment>
     <fragment
         android:id="@+id/teacherEditProfileFragment"
@@ -80,5 +82,13 @@
         <argument
             android:name="lessonModel"
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentProfileFragment2"
+        android:name="com.alisayar.kapmusqr.student.profile.StudentProfileFragment"
+        android:label="Öğrenci Profil">
+        <argument
+            android:name="studentId"
+            app:argType="string" />
     </fragment>
 </navigation>

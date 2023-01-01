@@ -9,7 +9,7 @@ import com.alisayar.kapmusqr.databinding.LessonRecyclerRowBinding
 import com.alisayar.kapmusqr.model.LessonModel
 import com.alisayar.kapmusqr.model.StudentDevamsizlikModel
 
-class DevamsizlikOgrencilerRecyclerAdapter(): ListAdapter<StudentDevamsizlikModel, DevamsizlikOgrencilerRecyclerAdapter.ViewHolder>(DiffUtilCallbackA) {
+class DevamsizlikOgrencilerRecyclerAdapter(private val onClickListener: StudentOnClickListener): ListAdapter<StudentDevamsizlikModel, DevamsizlikOgrencilerRecyclerAdapter.ViewHolder>(DiffUtilCallbackA) {
     class ViewHolder(val binding: DevamsizlikOgrencilerRecyclerRowBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(studentDevamsizlikModel: StudentDevamsizlikModel?) {
             binding.model = studentDevamsizlikModel
@@ -25,7 +25,13 @@ class DevamsizlikOgrencilerRecyclerAdapter(): ListAdapter<StudentDevamsizlikMode
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(item)
+        }
         holder.bind(item)
     }
 }
 
+class StudentOnClickListener(val clickListener: (lessonModel: StudentDevamsizlikModel) -> Unit){
+    fun onClick(studentModel: StudentDevamsizlikModel) = clickListener(studentModel)
+}
