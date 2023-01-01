@@ -128,9 +128,14 @@ class LessonFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        viewModel.ogretmenMi.observe(viewLifecycleOwner, Observer {
+            if(it){
+                setHasOptionsMenu(true)
+            }
+        })
 
 
-        setHasOptionsMenu(true)
+
     }
 
 
@@ -167,7 +172,8 @@ class LessonFragment : Fragment() {
 
             }
             R.id.edit_lesson -> {
-                println("Ders Düzenleme")
+                val action = LessonFragmentDirections.actionLessonFragmentToEditLessonFragment(argument.lessonModel)
+                findNavController().navigate(action)
             }
             R.id.delete_lesson -> {
                 viewModel.deleteLesson()

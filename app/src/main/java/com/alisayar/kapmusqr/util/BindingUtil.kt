@@ -33,6 +33,7 @@ fun bindCircleImageUrl(imageView: CircleImageView, imgUrl: String?){
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         Glide.with(imageView.context)
             .load(imgUri)
+            .placeholder(R.drawable.loading_animation)
             .into(imageView)
     }
 }

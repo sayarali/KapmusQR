@@ -56,9 +56,7 @@ class AddLessonsFragment : Fragment() {
         val gunler = resources.getStringArray(R.array.gunler)
         val arrayAdapterG = ArrayAdapter<String>(requireContext(), R.layout.dropdown_item, gunler)
         binding.autoCompleteGun.setAdapter(arrayAdapterG)
-        viewModel.donem.observe(viewLifecycleOwner, Observer {
-            println(it)
-        })
+
         setHasOptionsMenu(true)
 
         viewModel.dersKoduError.observe(viewLifecycleOwner, Observer {

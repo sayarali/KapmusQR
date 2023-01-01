@@ -41,8 +41,13 @@ class LessonViewModel(private val lessonModel: LessonModel): ViewModel() {
     private val _ogretimGorevlisiAd = MutableLiveData<String>()
     val ogretimGorevlisiAd: LiveData<String> get() = _ogretimGorevlisiAd
 
+
+    private val _ogretmenMi = MutableLiveData<Boolean>()
+    val ogretmenMi: LiveData<Boolean> get() = _ogretmenMi
+
     val studentNo = MutableLiveData<String>()
     init {
+        kullaniciOgretmenMi()
         getTeacherData(lessonModel.ogretimGorevlisiId)
         _dersAdi.value = lessonModel.dersAdi
         _dersKodu.value = lessonModel.dersKodu
@@ -98,6 +103,12 @@ class LessonViewModel(private val lessonModel: LessonModel): ViewModel() {
             }
         }.addOnFailureListener {
             _toastError.value = it.localizedMessage
+        }
+    }
+
+    private fun kullaniciOgretmenMi(){
+        firestore.collection("Teachers").whereEqualTo("id", auth.currentUser!!.uid).get().addOnSuccessListener {
+            _ogretmenMi.value = !it.isEmpty
         }
     }
 

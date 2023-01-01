@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_lessonFragment_to_teacherProfileFragment"
             app:destination="@id/teacherProfileFragment" />
+        <action
+            android:id="@+id/action_lessonFragment_to_editLessonFragment"
+            app:destination="@id/editLessonFragment" />
     </fragment>
     <fragment
         android:id="@+id/devamDetayFragment"
@@ -70,4 +73,12 @@
         android:id="@+id/teacherEditProfileFragment"
         android:name="com.alisayar.kapmusqr.teacher.profile.edit.TeacherEditProfileFragment"
         android:label="Profili Düzenle" />
+    <fragment
+        android:id="@+id/editLessonFragment"
+        android:name="com.alisayar.kapmusqr.lesson.edit.EditLessonFragment"
+        android:label="EditLessonFragment" >
+        <argument
+            android:name="lessonModel"
+            app:argType="com.alisayar.kapmusqr.model.LessonModel" />
+    </fragment>
 </navigation>
