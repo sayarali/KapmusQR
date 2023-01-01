@@ -118,7 +118,7 @@ class DevamDetayViewModel(private val hafta: String, private val lessonModel: Le
 
             } else {
                 val barcodeEncoder = BarcodeEncoder()
-                val bitmap = barcodeEncoder.encodeBitmap("${lessonModel.dersAdi} ${hafta}", BarcodeFormat.QR_CODE, 400, 400)
+                val bitmap = barcodeEncoder.encodeBitmap("${lessonModel.dersAdi} $hafta", BarcodeFormat.QR_CODE, 400, 400)
                 val reference = storage.reference
                 val imageReference =reference.child("qrCodes")
                     .child("${lessonModel.dersAdi} ${hafta}.jpg")

@@ -88,6 +88,18 @@ class LessonViewModel(private val lessonModel: LessonModel): ViewModel() {
     fun addStudent(studentNo: String){
         try {
             firestore.collection("Lessons").document(lessonModel.dersKodu).update("ogrenciler", FieldValue.arrayUnion(studentNo))
+            firestore.collection("Students").whereEqualTo("studentNo", studentNo).get().addOnCompleteListener {
+                if(it.isSuccessful){
+                    val document = it.result.documents
+                    var id = ""
+                    for(i in document){
+                        id = i.id
+                    }
+                    if (id.isNotEmpty()){
+                        firestore.collection("Students").document(id).update("derslerim",FieldValue.arrayUnion(lessonModel.dersKodu))
+                    }
+                }
+            }
 
         }catch (e: Exception){
             println(e.localizedMessage)

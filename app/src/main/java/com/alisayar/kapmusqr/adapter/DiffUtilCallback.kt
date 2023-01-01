@@ -7,10 +7,10 @@ import com.alisayar.kapmusqr.model.StudentModel
 
 object DiffUtilCallback: DiffUtil.ItemCallback<LessonModel>() {
     override fun areItemsTheSame(oldItem: LessonModel, newItem: LessonModel): Boolean {
-        return oldItem.dersKodu == newItem.dersKodu
+        return oldItem == newItem
     }
     override fun areContentsTheSame(oldItem: LessonModel, newItem: LessonModel): Boolean {
-        return oldItem == newItem
+        return oldItem.dersKodu == newItem.dersKodu
     }
 
 }
