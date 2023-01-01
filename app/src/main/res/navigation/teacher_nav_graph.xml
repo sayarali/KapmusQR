@@ -22,7 +22,14 @@
         android:id="@+id/teacherProfileFragment"
         android:name="com.alisayar.kapmusqr.teacher.profile.TeacherProfileFragment"
         android:label="Profil"
-        tools:layout="@layout/fragment_teacher_profile" />
+        tools:layout="@layout/fragment_teacher_profile" >
+        <argument
+            android:name="teacherId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_teacherProfileFragment_to_teacherEditProfileFragment"
+            app:destination="@id/teacherEditProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/teacherMyLessonsFragment"
         android:name="com.alisayar.kapmusqr.teacher.myLessons.TeacherMyLessonsFragment"
@@ -41,27 +48,26 @@
             android:name="lessonModel"
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />
         <action
-            android:id="@+id/action_lessonFragment_to_createQRFragment"
-            app:destination="@id/createQRFragment" />
+            android:id="@+id/action_lessonFragment_to_devamDetayFragment"
+            app:destination="@id/devamDetayFragment" />
         <action
-            android:id="@+id/action_lessonFragment_to_addStudentFragment"
-            app:destination="@id/addStudentFragment" />
+            android:id="@+id/action_lessonFragment_to_teacherProfileFragment"
+            app:destination="@id/teacherProfileFragment" />
     </fragment>
     <fragment
-        android:id="@+id/createQRFragment"
-        android:name="com.alisayar.kapmusqr.qr.CreateQRFragment"
-        android:label="QR Oluştur"
-        tools:layout="@layout/fragment_create_q_r">
+        android:id="@+id/devamDetayFragment"
+        android:name="com.alisayar.kapmusqr.lesson.devamsizlik.DevamDetayFragment"
+        android:label="fragment_devam_detay"
+        tools:layout="@layout/fragment_devam_detay" >
+        <argument
+            android:name="hafta"
+            app:argType="string" />
         <argument
             android:name="lessonModel"
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />
     </fragment>
     <fragment
-        android:id="@+id/addStudentFragment"
-        android:name="com.alisayar.kapmusqr.lesson.addstudent.AddStudentFragment"
-        android:label="Öğrenci Ekle">
-        <argument
-            android:name="lessonModel"
-            app:argType="com.alisayar.kapmusqr.model.LessonModel" />
-    </fragment>
+        android:id="@+id/teacherEditProfileFragment"
+        android:name="com.alisayar.kapmusqr.teacher.profile.edit.TeacherEditProfileFragment"
+        android:label="Profili Düzenle" />
 </navigation>

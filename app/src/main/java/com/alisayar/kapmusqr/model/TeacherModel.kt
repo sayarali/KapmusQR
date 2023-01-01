@@ -8,5 +8,5 @@ data class TeacherModel(
     val surname: String,
     val roomNumber: String,
     val phoneNumber: String,
-    val ppUrl: String
+    var ppUrl: String
 )

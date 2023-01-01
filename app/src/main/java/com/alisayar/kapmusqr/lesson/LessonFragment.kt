@@ -60,6 +60,76 @@ class LessonFragment : Fragment() {
             println(it)
         })
 
+        binding.teacherButton.setOnClickListener{
+            val action = viewModel.ogretimGorevlisi.value?.let { it1 ->
+                LessonFragmentDirections.actionLessonFragmentToTeacherProfileFragment(
+                    it1.id)
+            }
+            if (action != null) {
+                findNavController().navigate(action)
+            }
+        }
+
+
+        binding.haftaBir.setOnClickListener {
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("1. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaIki.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("2. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaUc.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("3. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaDort.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("4. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaBes.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("5. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaAlti.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("6. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaYedi.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("7. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaSekiz.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("8. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaDokuz.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("9. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaOn.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("10. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaOnbir.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("11. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaOniki.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("12. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaOnuc.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("13. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+        binding.haftaOndort.setOnClickListener{
+            val action = LessonFragmentDirections.actionLessonFragmentToDevamDetayFragment("14. Hafta", argument.lessonModel)
+            findNavController().navigate(action)
+        }
+
+
+
         setHasOptionsMenu(true)
     }
 
@@ -95,10 +165,6 @@ class LessonFragment : Fragment() {
 
                 builder.show()
 
-            }
-            R.id.create_qr -> {
-                val action = LessonFragmentDirections.actionLessonFragmentToCreateQRFragment(argument.lessonModel)
-                findNavController().navigate(action)
             }
             R.id.edit_lesson -> {
                 println("Ders Düzenleme")

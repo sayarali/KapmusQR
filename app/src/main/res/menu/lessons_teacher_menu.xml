@@ -3,7 +3,6 @@
 
 
     <item android:id="@+id/add_student" android:title="Derse Öğrenci Ekle"/>
-    <item android:id="@+id/create_qr" android:title="QR Oluştur"/>
     <item android:id="@+id/edit_lesson" android:title="Dersi Düzenle"/>
     <item android:id="@+id/delete_lesson" android:title="Dersi Sil"/>
 

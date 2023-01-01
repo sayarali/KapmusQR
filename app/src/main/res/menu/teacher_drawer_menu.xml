@@ -3,7 +3,6 @@
 
     <group android:id="@+id/group_one">
         <item android:id="@+id/teacherHomeFragment" android:title="Ana Sayfa" />
-        <item android:id="@+id/teacherMyLessonsFragment" android:title="Derslerim" />
         <item android:id="@+id/teacherProfileFragment" android:title="Profil" />
     </group>
 
