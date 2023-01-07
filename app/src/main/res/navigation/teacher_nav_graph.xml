@@ -78,7 +78,7 @@
     <fragment
         android:id="@+id/editLessonFragment"
         android:name="com.alisayar.kapmusqr.lesson.edit.EditLessonFragment"
-        android:label="EditLessonFragment" >
+        android:label="Dersi Düzenle">
         <argument
             android:name="lessonModel"
             app:argType="com.alisayar.kapmusqr.model.LessonModel" />

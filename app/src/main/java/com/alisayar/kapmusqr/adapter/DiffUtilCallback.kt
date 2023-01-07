@@ -16,10 +16,10 @@ object DiffUtilCallback: DiffUtil.ItemCallback<LessonModel>() {
 }
 object DiffUtilCallbackA: DiffUtil.ItemCallback<StudentDevamsizlikModel>() {
     override fun areItemsTheSame(oldItem: StudentDevamsizlikModel, newItem: StudentDevamsizlikModel): Boolean {
-        return oldItem.ogrenciNo == newItem.ogrenciNo
+        return oldItem == newItem
     }
     override fun areContentsTheSame(oldItem: StudentDevamsizlikModel, newItem: StudentDevamsizlikModel): Boolean {
-        return oldItem == newItem
+        return oldItem.id == newItem.id
     }
 
 }

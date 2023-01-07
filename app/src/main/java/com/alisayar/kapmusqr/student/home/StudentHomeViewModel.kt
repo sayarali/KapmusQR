@@ -27,33 +27,75 @@ class StudentHomeViewModel: ViewModel() {
     fun getLessonsData(){
         _isRefreshing.value = true
         val lessonListTemp = arrayListOf<LessonModel>()
-        firestore.collection("Students").document(auth.currentUser!!.uid).get().addOnCompleteListener {
-            if(it.isSuccessful){
-                if(it.result["derslerim"] != null){
-                    val dersKoduList = it.result["derslerim"] as List<String>
-                    for (i in dersKoduList){
-                        firestore.collection("Lessons").document(i).get().addOnCompleteListener {
-                            val model = LessonModel(
-                                it.result["dersKodu"].toString(),
-                                it.result["dersAdi"].toString(),
-                                it.result["donem"].toString(),
-                                it.result["sinif"].toString(),
-                                it.result["derslik"].toString(),
-                                it.result["gun"].toString(),
-                                it.result["saat"].toString(),
-                                it.result["ogretimGorevlisi"].toString()
-                            )
-                            lessonListTemp.add(model)
-                            lessonListTemp.sortedBy {
-                                it.dersAdi
+        firestore.collection("Students").document(auth.currentUser!!.uid).addSnapshotListener { value1, error1 ->
+            if(error1 == null){
+                if(value1 != null && value1.exists()){
+                    if(value1["derslerim"] != null){
+                        val dersKoduList = value1["derslerim"] as List<*>
+                        for (i in dersKoduList){
+                            firestore.collection("Lessons").document(i.toString()).addSnapshotListener { value, error ->
+                                if(error == null){
+                                    if(value != null && value.exists()){
+                                        val model = LessonModel(
+                                            value["dersKodu"].toString(),
+                                            value["dersAdi"].toString(),
+                                            value["donem"].toString(),
+                                            value["sinif"].toString(),
+                                            value["derslik"].toString(),
+                                            value["gun"].toString(),
+                                            value["saat"].toString(),
+                                            value["ogretimGorevlisi"].toString()
+                                        )
+                                        lessonListTemp.add(model)
+                                        lessonListTemp.sortByDescending { lessonModel ->
+                                            lessonModel.dersAdi
+                                        }
+                                        _lessonList.value = lessonListTemp
+                                    }
+                                }
                             }
-                            _lessonList.value = lessonListTemp
-                            _isRefreshing.value = false
                         }
+                        _isRefreshing.value = false
                     }
                 }
             }
         }
+
+
+
+
+
+
+
+//        firestore.collection("Students").document(auth.currentUser!!.uid).get().addOnCompleteListener { it ->
+//            if(it.isSuccessful){
+//                if(it.result["derslerim"] != null){
+//                    val dersKoduList = it.result["derslerim"] as List<String>
+//                    println("ilk$dersKoduList")
+//                    for (i in dersKoduList){
+//                        firestore.collection("Lessons").document(i).get().addOnCompleteListener { task ->
+//                            val model = LessonModel(
+//                                task.result["dersKodu"].toString(),
+//                                task.result["dersAdi"].toString(),
+//                                task.result["donem"].toString(),
+//                                task.result["sinif"].toString(),
+//                                task.result["derslik"].toString(),
+//                                task.result["gun"].toString(),
+//                                task.result["saat"].toString(),
+//                                task.result["ogretimGorevlisi"].toString()
+//                            )
+//                            lessonListTemp.add(model)
+//                            lessonListTemp.sortByDescending { lessonModel ->
+//                                lessonModel.dersAdi
+//                            }
+//                        }
+//                        println(lessonListTemp)
+//                        _lessonList.value = lessonListTemp
+//                        _isRefreshing.value = false
+//                    }
+//                }
+//            }
+//        }
 
 
 

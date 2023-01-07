@@ -27,7 +27,6 @@ class LoginActivity : AppCompatActivity() {
             try {
                 firestore.collection("Teachers").document(id).get().addOnSuccessListener {
                     if(it.exists()){
-                        println("Öğretmen")
                         val intentTeacher = Intent(this, TeacherMainActivity::class.java)
                         startActivity(intentTeacher)
                         finish()
@@ -35,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
                 }
                 firestore.collection("Students").document(id).get().addOnSuccessListener {
                     if(it.exists()){
-                        println("Öğrenci")
                         val intentStudent = Intent(this, StudentMainActivity::class.java)
                         startActivity(intentStudent)
                         finish()

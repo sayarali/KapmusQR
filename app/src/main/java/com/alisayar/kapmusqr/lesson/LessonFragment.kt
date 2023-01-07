@@ -1,12 +1,16 @@
 package com.alisayar.kapmusqr.lesson
 
 import android.R.attr.button
+import android.app.Activity
 import android.content.DialogInterface
 import android.content.DialogInterface.OnClickListener
 import android.content.DialogInterface.OnShowListener
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.EditText
+import android.widget.Toast.makeText
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -14,9 +18,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.alisayar.kapmusqr.Capture
 import com.alisayar.kapmusqr.R
 import com.alisayar.kapmusqr.databinding.FragmentLessonBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.qrcode.QRCodeReader
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
+import java.lang.Exception
+import java.util.*
 
 
 class LessonFragment : Fragment() {
@@ -128,11 +139,7 @@ class LessonFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        viewModel.ogretmenMi.observe(viewLifecycleOwner, Observer {
-            if(it){
-                setHasOptionsMenu(true)
-            }
-        })
+        setHasOptionsMenu(true)
 
 
 
@@ -140,12 +147,22 @@ class LessonFragment : Fragment() {
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.lessons_teacher_menu, menu)
+        viewModel.ogretmenMi.observe(viewLifecycleOwner, Observer {
+            if(it){
+                inflater.inflate(R.menu.lessons_teacher_menu, menu)
+            } else {
+                inflater.inflate(R.menu.read_qr_menu, menu)
+            }
+        })
+
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            R.id.read_qr_item -> {
+                barcodeScanner()
+            }
             R.id.add_student -> {
 
                 val inflater = layoutInflater
@@ -181,6 +198,35 @@ class LessonFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+    private fun barcodeScanner(){
+        val intentIntegrator = IntentIntegrator.forSupportFragment(this)
+        intentIntegrator.setPrompt("Flaş aç -> Ses açma tuşu\n\nFlaş kapat -> Ses kapatma tuşu")
+        intentIntegrator.setBeepEnabled(false)
+        intentIntegrator.setOrientationLocked(true)
+        intentIntegrator.captureActivity = Capture::class.java
+        intentIntegrator.initiateScan()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == IntentIntegrator.REQUEST_CODE){
+            if (resultCode == Activity.RESULT_OK && data != null){
+                try {
+                    val intentResult = IntentIntegrator.parseActivityResult(requestCode,resultCode,data)
+                    if(intentResult != null){
+                        viewModel.addStudentForGelen(intentResult.contents)
+                        println(intentResult.contents.toString())
+                        println()
+                    }
+                } catch (e: Exception){}
+            }
+        }
+    }
+
+
 
 
 }

@@ -13,7 +13,6 @@ import com.alisayar.kapmusqr.R
 import com.alisayar.kapmusqr.adapter.LessonRecyclerAdapter
 import com.alisayar.kapmusqr.adapter.OnClickListener
 import com.alisayar.kapmusqr.databinding.FragmentTeacherHomeBinding
-import com.alisayar.kapmusqr.login.TeacherSignInDirections
 
 
 class TeacherHomeFragment : Fragment() {
@@ -44,7 +43,7 @@ class TeacherHomeFragment : Fragment() {
         })
 
         binding.teacherHomeSwipeRefresh.setOnRefreshListener {
-            viewModel.getLessonsData()
+           viewModel.getLessonsData()
         }
 
         viewModel.isRefreshing.observe(viewLifecycleOwner, Observer {

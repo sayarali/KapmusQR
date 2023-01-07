@@ -113,7 +113,7 @@ class TeacherSignUpViewModel: ViewModel() {
             teacherHashMap["surname"] = surname.value.toString()
             teacherHashMap["roomNumber"] = roomNumber.value.toString()
             teacherHashMap["phoneNumber"] = phoneNumber.value.toString()
-            teacherHashMap["ppUrl"] = "https://firebasestorage.googleapis.com/v0/b/kampusqr.appspot.com/o/profilephotos%2Fblank-profile-picture-gdcf95bedf_1280.png?alt=media&token=5645d249-0f11-4d78-922a-114d3818485a"
+            teacherHashMap["ppUrl"] = "https://firebasestorage.googleapis.com/v0/b/kampusqr.appspot.com/o/profilephotos%2Fblank-profile-picture-973460_640.webp?alt=media&token=7c8b331a-8f10-4d01-a948-4e90123e3e2f"
 
             firestore.collection("Teachers").document(auth.currentUser!!.uid).set(teacherHashMap).addOnCompleteListener {
                 _successRegisterEvent.value = true

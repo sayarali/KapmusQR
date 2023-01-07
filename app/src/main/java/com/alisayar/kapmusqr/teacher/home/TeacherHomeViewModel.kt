@@ -31,10 +31,8 @@ class TeacherHomeViewModel: ViewModel() {
             if(error != null){
                 _isRefreshing.value = false
             } else {
-                lessonListTemp.clear()
                 if(value != null && !value.isEmpty){
                     val documents = value.documents
-                    lessonListTemp.clear()
                     for (doc in documents){
                         val dersKodu = doc["dersKodu"].toString()
                         val dersAdi = doc["dersAdi"].toString()
@@ -47,7 +45,7 @@ class TeacherHomeViewModel: ViewModel() {
                         val lessonModel = LessonModel(dersKodu, dersAdi, donem, sinif, derslik, gun, saat, ogretimGorevlisiId)
                         lessonListTemp.add(lessonModel)
                         lessonListTemp.sortByDescending {
-                            it.dersKodu
+                            it.dersAdi
                         }
                         _lessonList.value = lessonListTemp
                         _isRefreshing.value = false

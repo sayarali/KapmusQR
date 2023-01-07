@@ -104,7 +104,7 @@ class StudentSignUpViewModel: ViewModel() {
             studentHashMap["name"] = name.value.toString()
             studentHashMap["surname"] = surname.value.toString()
             studentHashMap["phoneNumber"] = phoneNumber.value.toString()
-
+            studentHashMap["ppUrl"] = "https://firebasestorage.googleapis.com/v0/b/kampusqr.appspot.com/o/profilephotos%2Fblank-profile-picture-973460_640.webp?alt=media&token=7c8b331a-8f10-4d01-a948-4e90123e3e2f"
             firestore.collection("Students").document(auth.currentUser!!.uid).set(studentHashMap).addOnCompleteListener {
                 _successRegisterEvent.value = true
             }.addOnFailureListener {

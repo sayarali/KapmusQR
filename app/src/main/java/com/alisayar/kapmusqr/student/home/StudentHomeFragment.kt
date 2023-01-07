@@ -50,5 +50,10 @@ class StudentHomeFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getLessonsData()
+    }
+
 
 }

@@ -11,29 +11,14 @@
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_studentSignIn"
-            app:destination="@id/studentSignIn" />
-        <action
-            android:id="@+id/action_loginFragment_to_teacherSignIn"
-            app:destination="@id/teacherSignIn" />
-    </fragment>
-    <fragment
-        android:id="@+id/studentSignIn"
-        android:name="com.alisayar.kapmusqr.login.StudentSignIn"
-        android:label="fragment_student_sign_in"
-        tools:layout="@layout/fragment_student_sign_in" >
-        <action
-            android:id="@+id/action_studentSignIn_to_studentSignUp"
-            app:destination="@id/studentSignUp" />
-    </fragment>
-    <fragment
-        android:id="@+id/teacherSignIn"
-        android:name="com.alisayar.kapmusqr.login.TeacherSignIn"
-        android:label="fragment_teacher_sign_in"
-        tools:layout="@layout/fragment_teacher_sign_in" >
-        <action
-            android:id="@+id/action_teacherSignIn_to_teacherSignUp"
+            android:id="@+id/action_loginFragment_to_teacherSignUp"
             app:destination="@id/teacherSignUp" />
+        <action
+            android:id="@+id/action_loginFragment_to_studentSignUp"
+            app:destination="@id/studentSignUp" />
+        <action
+            android:id="@+id/action_loginFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/teacherSignUp"
@@ -44,4 +29,8 @@
         android:name="com.alisayar.kapmusqr.login.StudentSignUp"
         android:label="fragment_student_sign_up"
         tools:layout="@layout/fragment_student_sign_up" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.alisayar.kapmusqr.login.SignInFragment"
+        android:label="SignInFragment" />
 </navigation>

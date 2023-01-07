@@ -1,10 +1,10 @@
 package com.alisayar.kapmusqr.lesson.devamsizlik
 
 import android.os.Bundle
+import android.view.*
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -14,6 +14,7 @@ import com.alisayar.kapmusqr.R
 import com.alisayar.kapmusqr.adapter.DevamsizlikOgrencilerRecyclerAdapter
 import com.alisayar.kapmusqr.adapter.StudentOnClickListener
 import com.alisayar.kapmusqr.databinding.FragmentDevamDetayBinding
+import com.alisayar.kapmusqr.lesson.LessonFragmentDirections
 
 
 class DevamDetayFragment : Fragment() {
@@ -42,12 +43,24 @@ class DevamDetayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         viewModel.haftaAdi.observe(viewLifecycleOwner, Observer {
             (activity as AppCompatActivity).supportActionBar?.title = it
         })
 
+        viewModel.ogretmenMi.observe(viewLifecycleOwner, Observer {
+            if(it){
+                binding.qrCodeImage.visibility = View.VISIBLE
+            }
+        })
 
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getOgrenciList()
     }
 
 }

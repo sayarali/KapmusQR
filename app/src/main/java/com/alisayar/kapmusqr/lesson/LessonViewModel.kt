@@ -128,4 +128,19 @@ class LessonViewModel(private val lessonModel: LessonModel): ViewModel() {
         _popUpEvent.value = false
     }
 
+
+
+
+    fun addStudentForGelen(qrString: String){
+        firestore.collection("Students").document(auth.currentUser!!.uid).get().addOnCompleteListener {
+            if(it.isSuccessful){
+                val studentNo = it.result["studentNo"]
+                firestore.collection("Lessons").document(lessonModel.dersKodu).collection("Devam").document(qrString)
+                    .update("gelenOgrenciler", FieldValue.arrayUnion(studentNo)).addOnCompleteListener {
+
+                    }
+            }
+        }
+    }
+
 }

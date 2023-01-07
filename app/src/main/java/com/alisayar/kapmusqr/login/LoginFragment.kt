@@ -25,15 +25,18 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.studentSignInButton.setOnClickListener{
-            val action = LoginFragmentDirections.actionLoginFragmentToStudentSignIn()
+        binding.signInButton.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToSignInFragment()
             findNavController().navigate(action)
         }
-        binding.teacherSignInButton.setOnClickListener{
-            val action = LoginFragmentDirections.actionLoginFragmentToTeacherSignIn()
+        binding.studentSignUpButton.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToStudentSignUp()
             findNavController().navigate(action)
         }
-
+        binding.teacherSignUpButton.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToTeacherSignUp()
+            findNavController().navigate(action)
+        }
     }
 
 

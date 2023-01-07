@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.alisayar.kapmusqr.MainActivity
 import com.alisayar.kapmusqr.R
-import com.alisayar.kapmusqr.databinding.FragmentStudentSignInBinding
 import com.alisayar.kapmusqr.databinding.FragmentStudentSignUpBinding
 import com.google.android.material.snackbar.Snackbar
 

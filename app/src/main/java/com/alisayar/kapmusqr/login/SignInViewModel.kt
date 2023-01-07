@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 
-class StudentSignInViewModel: ViewModel() {
+class SignInViewModel: ViewModel() {
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     val email = MutableLiveData<String>()
